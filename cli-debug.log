@@ -1,0 +1,115 @@
+2020-02-23 20:11:48 Notice: Notice (8): Undefined index: Categories in [D:\programs\openserver\OSPanel\domains\rojac\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+Bake\View\Helper\DocBlockHelper::buildTableAnnotations() - ROOT\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246
+Twig\Template::getAttribute() - ROOT\vendor\twig\twig\src\Template.php, line 673
+__TwigTemplate_87d292f2529438d7bfec90df36f532b85f1f0bd0e7acdb61841a70f1bf70f442::doDisplay() - ROOT\tmp\cache\twigView\e1\e11452f32dd593175b1b176b04b0dbb7b8c9aa0602586181e3ad823bdc97df7c.php, line 33
+Twig\Template::displayWithErrorHandling() - ROOT\vendor\twig\twig\src\Template.php, line 427
+Twig\Template::display() - ROOT\vendor\twig\twig\src\Template.php, line 398
+Twig\Template::render() - ROOT\vendor\twig\twig\src\Template.php, line 406
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT\vendor\wyrihaximus\twig-view\src\View\TwigView.php, line 180
+Bake\View\BakeView::render() - ROOT\vendor\cakephp\bake\src\View\BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT\vendor\cakephp\bake\src\Shell\Task\BakeTemplateTask.php, line 91
+Bake\Shell\Task\ModelTask::bakeTable() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 1014
+Bake\Shell\Task\ModelTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 115
+Bake\Shell\Task\ModelTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 101
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 532
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 525
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 371
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 166
+[main] - ROOT\bin\cake.php, line 12
+
+
+
+2020-03-25 17:34:42 Notice: Notice (8): Undefined index: Products in [D:\programs\openserver\OSPanel\domains\rojac\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+Bake\View\Helper\DocBlockHelper::buildTableAnnotations() - ROOT\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246
+Twig\Template::getAttribute() - ROOT\vendor\twig\twig\src\Template.php, line 673
+__TwigTemplate_87d292f2529438d7bfec90df36f532b85f1f0bd0e7acdb61841a70f1bf70f442::doDisplay() - ROOT\tmp\cache\twigView\e1\e11452f32dd593175b1b176b04b0dbb7b8c9aa0602586181e3ad823bdc97df7c.php, line 33
+Twig\Template::displayWithErrorHandling() - ROOT\vendor\twig\twig\src\Template.php, line 427
+Twig\Template::display() - ROOT\vendor\twig\twig\src\Template.php, line 398
+Twig\Template::render() - ROOT\vendor\twig\twig\src\Template.php, line 406
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT\vendor\wyrihaximus\twig-view\src\View\TwigView.php, line 180
+Bake\View\BakeView::render() - ROOT\vendor\cakephp\bake\src\View\BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT\vendor\cakephp\bake\src\Shell\Task\BakeTemplateTask.php, line 91
+Bake\Shell\Task\ModelTask::bakeTable() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 1014
+Bake\Shell\Task\ModelTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 115
+Bake\Shell\Task\ModelTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 101
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 532
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 525
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 371
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 166
+[main] - ROOT\bin\cake.php, line 12
+
+
+
+2020-05-17 17:32:30 Notice: Notice (8): Undefined index: Users in [D:\programs\openserver\OSPanel\domains\rojac\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+Bake\View\Helper\DocBlockHelper::buildTableAnnotations() - ROOT\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246
+Twig\Template::getAttribute() - ROOT\vendor\twig\twig\src\Template.php, line 673
+__TwigTemplate_87d292f2529438d7bfec90df36f532b85f1f0bd0e7acdb61841a70f1bf70f442::doDisplay() - ROOT\tmp\cache\twigView\e1\e11452f32dd593175b1b176b04b0dbb7b8c9aa0602586181e3ad823bdc97df7c.php, line 33
+Twig\Template::displayWithErrorHandling() - ROOT\vendor\twig\twig\src\Template.php, line 427
+Twig\Template::display() - ROOT\vendor\twig\twig\src\Template.php, line 398
+Twig\Template::render() - ROOT\vendor\twig\twig\src\Template.php, line 406
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT\vendor\wyrihaximus\twig-view\src\View\TwigView.php, line 180
+Bake\View\BakeView::render() - ROOT\vendor\cakephp\bake\src\View\BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT\vendor\cakephp\bake\src\Shell\Task\BakeTemplateTask.php, line 91
+Bake\Shell\Task\ModelTask::bakeTable() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 1014
+Bake\Shell\Task\ModelTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 115
+Bake\Shell\Task\ModelTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 101
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 532
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 525
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 371
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 166
+[main] - ROOT\bin\cake.php, line 12
+
+
+
+2020-05-17 17:32:30 Notice: Notice (8): Undefined index: Deliveries in [D:\programs\openserver\OSPanel\domains\rojac\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+Bake\View\Helper\DocBlockHelper::buildTableAnnotations() - ROOT\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246
+Twig\Template::getAttribute() - ROOT\vendor\twig\twig\src\Template.php, line 673
+__TwigTemplate_87d292f2529438d7bfec90df36f532b85f1f0bd0e7acdb61841a70f1bf70f442::doDisplay() - ROOT\tmp\cache\twigView\e1\e11452f32dd593175b1b176b04b0dbb7b8c9aa0602586181e3ad823bdc97df7c.php, line 33
+Twig\Template::displayWithErrorHandling() - ROOT\vendor\twig\twig\src\Template.php, line 427
+Twig\Template::display() - ROOT\vendor\twig\twig\src\Template.php, line 398
+Twig\Template::render() - ROOT\vendor\twig\twig\src\Template.php, line 406
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT\vendor\wyrihaximus\twig-view\src\View\TwigView.php, line 180
+Bake\View\BakeView::render() - ROOT\vendor\cakephp\bake\src\View\BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT\vendor\cakephp\bake\src\Shell\Task\BakeTemplateTask.php, line 91
+Bake\Shell\Task\ModelTask::bakeTable() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 1014
+Bake\Shell\Task\ModelTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 115
+Bake\Shell\Task\ModelTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 101
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 532
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 525
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 371
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 166
+[main] - ROOT\bin\cake.php, line 12
+
+
+
+2020-05-17 17:32:30 Notice: Notice (8): Undefined index: Oplatas in [D:\programs\openserver\OSPanel\domains\rojac\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 159
+Bake\View\Helper\DocBlockHelper::buildTableAnnotations() - ROOT\vendor\cakephp\bake\src\View\Helper\DocBlockHelper.php, line 246
+Twig\Template::getAttribute() - ROOT\vendor\twig\twig\src\Template.php, line 673
+__TwigTemplate_87d292f2529438d7bfec90df36f532b85f1f0bd0e7acdb61841a70f1bf70f442::doDisplay() - ROOT\tmp\cache\twigView\e1\e11452f32dd593175b1b176b04b0dbb7b8c9aa0602586181e3ad823bdc97df7c.php, line 33
+Twig\Template::displayWithErrorHandling() - ROOT\vendor\twig\twig\src\Template.php, line 427
+Twig\Template::display() - ROOT\vendor\twig\twig\src\Template.php, line 398
+Twig\Template::render() - ROOT\vendor\twig\twig\src\Template.php, line 406
+WyriHaximus\TwigView\View\TwigView::_render() - ROOT\vendor\wyrihaximus\twig-view\src\View\TwigView.php, line 180
+Bake\View\BakeView::render() - ROOT\vendor\cakephp\bake\src\View\BakeView.php, line 146
+Bake\Shell\Task\BakeTemplateTask::generate() - ROOT\vendor\cakephp\bake\src\Shell\Task\BakeTemplateTask.php, line 91
+Bake\Shell\Task\ModelTask::bakeTable() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 1014
+Bake\Shell\Task\ModelTask::bake() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 115
+Bake\Shell\Task\ModelTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\ModelTask.php, line 101
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 532
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 525
+Cake\Console\CommandRunner::runShell() - CORE\src\Console\CommandRunner.php, line 371
+Cake\Console\CommandRunner::run() - CORE\src\Console\CommandRunner.php, line 166
+[main] - ROOT\bin\cake.php, line 12
+
+
+

@@ -1,0 +1,47 @@
+# CakePHP specific files #
+##########################
+/config/app.php
+/config/.env
+/logs/*
+/tmp/*
+/composer.lock
+error_log
+/config/Migrations/schema-dump-default.lock
+/webroot/uploads/*
+/webroot/products/*
+/webroot/producers/*
+/webroot/products_gallery/*
+/webroot/blogs/*
+/webroot/categories/*
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea/*
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode
+# Sass preprocessor
+.sass-cache/
