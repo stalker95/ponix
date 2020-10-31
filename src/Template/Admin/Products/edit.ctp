@@ -10,6 +10,14 @@
                             </div>
                           <?php   endforeach; ?>
                         </div>
+
+    <div class="coupons_list coupons_list_parent" style="display: none;">
+                          <?php  foreach ($coupons as $key => $value): ?>
+                            <div class="coupons_list_item">
+                              <p class="coupons_list_item_title  choose_coupon" data-coupon="<?= $value['id'] ?>" data-name="<?= $value['name'] ?>"><?= $value['name']; ?></p>
+                            </div>
+                          <?php   endforeach; ?>
+                        </div>
     <!-- Main content -->
     <section class="content white_background products_container">
                   <?= $this->Form->create($product,['type' => 'file']); ?>
@@ -43,6 +51,9 @@
               </div>
               <div class="products_add_tabs_item">
                 <p>Знижки</p>
+              </div>
+              <div class="products_add_tabs_item">
+                <p>Промокоди</p>
               </div>
               <div class="products_add_tabs_item">
                 <p>Атрибути</p>
@@ -281,6 +292,45 @@
               </div>
                </div>
             </div>
+                        <div class="product_container_item" style="display: none;">
+                             <div class="promo_container">
+                 <table class="coupons_table">
+                   <thead>
+                     <th>Промокод</th>
+                     <th>Знижка</th>
+                     <th>Ціна з промокодом</th>
+                     <th>Дія</th>
+                   </thead>
+                   <tbody>
+                     <?php foreach ($coupons_products as $key => $value): ?>
+                      <?php //debug($value); ?>
+                      <tr>
+                        <td style="width: 30%;position: relative;">
+                        <input type="text" class="search_coupon" name="coupon" autocomplete="off" value="<?= $value['coupon']['name'] ?>">
+                        <input type="text" class="search_coupon_id" name="coupons[]" style="display: none;" value="<?= $value['coupon_id'] ?>">
+                        </td>
+                          <td>
+                            <input  type="text" name="coupons_values[]" value="<?= $value->discount  ?>">
+                          </td>
+                          <td>
+                            <?= $product->price  ?>
+                          </td>
+                          <td style="text-align: center;">
+                                                      <input  style="display: none;" type="text" name="coupons_values[]" value="<?= $value->discount  ?>">
+
+                            <button class="delete_new_coupon btn-danger"><i class="fa fa-trash"></i></button>
+                          </td>
+                        </tr>
+                    <?php endforeach; ?>
+                   </tbody>
+                 </table>
+                 <div class="add_new_attribute_container">
+                    <button class="add_new_promo btn-primary" type="button">
+                      <i class="fa fa-plus"></i>
+                    </button>
+              </div>
+               </div>
+            </div>
             <div class="product_container_item">
                            <div class="attributes_products">
                 <p class="attributes_products_title">Атрибути</p>
@@ -500,9 +550,12 @@
   
   var option_url = '<?= $this->Url->build(['controller' => 'options', 'action' => 'get-list-options', '_full' => true]) ?>';
   var attributes_url = '<?= $this->Url->build(['controller' => 'attributes', 'action' => 'get-list-attributes', '_full' => true]) ?>';
+    var coupons_url = '<?= $this->Url->build(['controller' => 'coupons', 'action' => 'get-list-coupons', '_full' => true]) ?>';
 </script>
 <?= $this->Html->script('admin/options.js?v=123'); ?>
 <?= $this->Html->script('admin/attributes.js?v=123'); ?>
+<?= $this->Html->script('admin/coupons.js?v=123'); ?>
+
 <script>
     $(document).ready(function () {
        CKEDITOR.replace( 'editor1');

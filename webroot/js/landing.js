@@ -41,6 +41,71 @@ var custom_currency_dollar;
 
 
 
+function translate_price_again()
+{
+  $.ajax({
+        url: ''+currency_url+'/currency/get-type-currency',
+        type: 'POST',
+        data: $(this).serialize(),
+        success: function(data){ 
+                   type_currency = data.result.type;
+                   custom_currency = data.result.value;
+                   custom_currency_dollar = data.result.value_dollar;
+        }
+     });
+setTimeout(function() {
+  if (type_currency == 1) {
+    setTimeout(function() {
+var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+  $.getJSON( flickerAPI, {
+    tags: "mount rainier",
+    tagmode: "any",
+    format: "json"
+  })
+  .done(function(data) {
+    global_curs = data[1]['buy'];
+    global_curs_dollar = data[0]['buy'];
+    console.log(data);
+   $(".translate_price").each(function() {
+        var price= parseFloat($(this).text());
+        console.log(price);
+        console.log(global_curs);
+        console.log(global_curs_dollar);
+        if ($(this).attr('data-currency') == 2) {
+        $(this).text(Math.floor(price * global_curs));
+      }
+      if ($(this).attr('data-currency') == 3) {
+        $(this).text(Math.floor(price * global_curs_dollar));
+      }
+        $(this).css("opacity","1");
+    });
+  })
+
+}, 400);
+  } else {
+    global_curs = custom_currency;
+    global_curs_dollar = custom_currency_dollar;
+    $(".translate_price").each(function() {
+        var price= parseFloat($(this).text().replace(",", "."));
+        console.log(price);
+        console.log(custom_currency);
+        console.log(custom_currency_dollar);
+        if ($(this).attr('data-currency') == 2) {
+        $(this).text(Math.floor(price * custom_currency));
+        }
+
+        if ($(this).attr('data-currency') == 3) {
+        $(this).text(Math.floor(price * custom_currency_dollar));
+        }
+        $(this).css("opacity","1");
+    });
+
+  }
+},400);
+}
+
+
+
 
   function update_count_cart() 
   {
@@ -123,7 +188,7 @@ function update_bascket_list() {
                    '</div>'+
                  '</div>'+
                  '<div class="bascket_item_price_total">'+
-                   '<p><span class="translate_price_search total_basket" data-currency="'+data.products[i]['product']['currency_id']+'">'+data.products[i]['total_sum']+'</span> грн</p>'+
+                   '<p><span class="translate_price_search total_basket" data-currency="'+data.products[i]['product']['currency_id']+'">'+data.products[i]['total_sum'] * data.products[i]['count']+'</span> грн</p>'+
                  '</div>'+
                '</div>'+
              '</div>'+
@@ -258,6 +323,7 @@ var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid
 }, 400);
   } else {
     global_curs = custom_currency;
+    global_curs_dollar = custom_currency_dollar;
     $(".translate_price").each(function() {
         var price= parseFloat($(this).text().replace(",", "."));
         console.log(price);
@@ -279,24 +345,12 @@ var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid
 
 
 function change_currency() {
-  var type_currency ;
-var custom_currency;
-var custom_currency_dollar;
-$.ajax({
-        url: ''+currency_url+'/currency/get-type-currency',
-        type: 'POST',
-        data: $(this).serialize(),
-        success: function(data){ 
-                    console.log("type: "+ data.result.type);
+  
 
-                   type_currency = data.result.type;
-                   custom_currency = data.result.value;
-                   console.log('custom_currency'+custom_currency);
-                   custom_currency_dollar = data.result.value_dollar;
-        }
-     });
-  if (type_currency == 1) {
+
     setTimeout(function() {
+
+  if (type_currency == 1) {
 var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
   $.getJSON( flickerAPI, {
     tags: "mount rainier",
@@ -306,7 +360,6 @@ var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid
   .done(function(data) {
     global_curs = data[1]['buy'];
     global_curs_dollar = data[0]['buy'];
-    console.log(data);
    $(".translate_price_search").each(function() {
       var price= parseFloat($(this).text());
         if ($(this).attr('data-currency') == 2) {
@@ -319,15 +372,9 @@ var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid
         $(this).css("opacity","1");
     });
   })
-}, 500);
   } else {
-        setTimeout(function() {
-    console.log('tow');
     global_curs = custom_currency;
     $(".translate_price_search").each(function() {
-      console.log('this_text' + $(this).text());
-      console.log(custom_currency);
-      console.log(custom_currency_dollar);
 
       var price= parseFloat($(this).text());
         if ($(this).attr('data-currency') == 2) {
@@ -337,15 +384,15 @@ var flickerAPI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid
         if ($(this).attr('data-currency') == 3) {
         $(this).text(Math.floor(price * custom_currency_dollar));
         }
-        //$(this).removeClass('translate_price_search');
+        $(this).removeClass('translate_price_search');
         $(this).css("opacity","1");
     });
+  }
 
-  
-
-}, 600);
-
-} }
+}, 100);
+            
+   
+} 
 
 $(document).ready(function() {
 
@@ -514,22 +561,27 @@ $(".custom-option").on("click", function() {
 
 $(document).ready(function() {
  
-  $(".header_center_text").keyup(function() {
+  $(".header_center_text").bind("change paste keyup", function(e) {
+  //e.preventDefault();
+
     $(".header_search_products").html("");
     if ($(this).val() != "") {
+
 
       $(".header_search_block").css("display", "block");
       $(".hide_search").css("display", "block");
       $(".loader.loader--style3").css("display", "block");
 
 
+var val= $(this).val();
 
+setTimeout(function() {
 
 
       $.ajax({
         url: ''+global_url+'search/search',
         type: 'POST',
-        data: {"search": $(this).val()},
+        data: {"search": val},
         success: function(data){ 
           $(".loader.loader--style3").css("display", "none");
 
@@ -558,10 +610,11 @@ $(document).ready(function() {
           setTimeout(function() {
         
 change_currency();
-          }, 500);
+          }, 300);
           
         }
      });
+      }, 600);
     } else {
       $(".header_search_block").css("display", "none");
       $(".hide_search").css("display", "none");
@@ -647,7 +700,7 @@ function save_count_bascket(count, key) {
         method: 'POST',
       data: { "count": count, "key": key},
       success: function(data){ 
-        alert("Змінено");
+        //alert("Змінено");
         }
     });
 
@@ -685,13 +738,16 @@ function set_new_price_tovar(element, product, new_count) {
        value_of_options = 0;
    }
    
-   if (product['is_empty_price']) {
-     var final_price = value_of_options * new_count;
-   } else {
+   console.log('is_empty_price'+ product['is_empty_price']);
+
+   
    var final_price = (price_product + value_of_options) * new_count;
-   }
+   console.log('final_price' + final_price);
+   console.log('currency_type' + product['product']['currency_id']);
+   
 
    $(element).parent().parent().parent().find('.total_basket').text(parseInt(final_price));
+ //  translate_price_again();
 }
 
 
@@ -1131,3 +1187,15 @@ $(".create_new_customer").submit(function() {
                 '</div>');
      }
    }); 
+
+
+
+  $(document).ready(function() {
+
+// This demo uses jQuery UI Autocomplete
+// https://jqueryui.com/autocomplete
+
+// Cannot style datalist elements yet, so get
+// each option value and pass to jQuery UI Autocomplete
+
+  });

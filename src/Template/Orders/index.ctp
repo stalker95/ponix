@@ -202,8 +202,30 @@
                   <input type="radio" name="type_delivery" class="type_delivery" value="2">
                   <span class="checkmark"></span>
                 </label>
-                <input type="text" name="adress_delivery_new" class="adress_delivery" placeholder="Вкажіть реквізити доставки" value="<?php if (!empty($_user)) { echo $_user->new_post_city." ".$_user->new_post_delivery; } ?>">
-                <p class="message_display"></p>
+                <div class="new_post_container" style="display: none;">
+                  
+                <input type="search" id="brand-filter" data-list="brands-list" name="brands"  autocomplete="off" required  placeholder="Виберіть місто" />
+                <label for="brand-filter" data-icon="&#128269;"></label>
+                  <datalist id="brands-list">
+                    <select class="list_city">
+                    </select>
+                  </datalist>
+                </div>
+                <p class="message_display empty_new_post_delivery"></p>
+
+                <div class="new_post_container" style="display: none;">
+                  
+                <input type="search" id="department-filter" data-list="department-list" name="department"  autocomplete="off" required  placeholder="Виберіть віддліення" />
+                <label for="department-filter" data-icon="&#128269;"></label>
+                  <datalist id="department-list">
+                    <select class="">
+                      <option value="1">hello</option>
+                      <option value="1">ku</option>
+                    </select>
+                  </datalist>
+                </div>
+               
+                <p class="message_display empty_new_post_department"></p>
 
                 <label class="orders_delivery_item">МістЕкспес
                   <input type="radio" name="type_delivery" class="type_delivery" value="3">
@@ -279,7 +301,7 @@
               <div class="orders_delivery_container">
 
                 <label class="orders_delivery_item">Я
-                  <input type="radio" class="type_user_delivery"  name="type_user_delivery" value="1">
+                  <input type="radio" class="type_user_delivery"  name="type_user_delivery" value="1" checked="checked">
                   <span class="checkmark"></span>
                 </label>
 
@@ -418,6 +440,35 @@
              <?php endif; ?>
              </div>
          </div>
+         <div class="coupon__container">
+         <?php  if (!isset($_SESSION['coupon'][0]) AND !empty($_SESSION['cart'])) :?>
+         <div class="coupon__section">
+           <div class="coupon__section__top">
+             <p class="coupon__section__title">Промокод</p>
+             <div class="coupon__section__button"><i class="fa fa-arrov"></i></div>
+           </div>
+           <div class="coupon__section__container">
+             <input type="text" name="coupon" class="coupon__section__field">
+             <button class="coupon__section__apply" type="button">Застосувати</button>
+           </div>
+         </div>
+       <?php  endif; ?>
+         <?php  if (isset($_SESSION['coupon'][0])) :?>
+         <div class="coupon__section___done">
+            <div class="coupon__section__description"> 
+              <p>Купон</p>
+              <p><?= $_SESSION['coupon'][0]['coupon'] ?></p>
+              <p><?= $_SESSION['coupon'][0]['discount'] ?> %</p>
+            </div> 
+            <div class="coupon__section___button">
+              <button type="button" class="unset__coupon">Змінити</button>
+            </div>
+         </div>
+       <?php  endif; ?>
+
+         </div>
+         <p class="invalid__coupons"></p>
+
   			<div class="orders_bascket_submit">
   				<button data-toggle="modal" data-target="#basket">Редагувати замовлення</button>
   			</div>
@@ -458,10 +509,20 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+
 
 <script>
     <?php echo $this->Html->scriptStart(['block' => true]); ?>
 
+var discount__coupon = 100;
+
+ <?php  if (isset($_SESSION['coupon'][0])) :?>
+       discount__coupon = <?= $_SESSION['coupon'][0]['discount']; ?>;
+ <?php  endif; ?>
 var logget_user = 0 ;
 var logger_user_before = <?php if (isset($_user)) { echo "1"; } else {echo "0";}  ?>;
  $('.new_customer_login').submit(function() {
@@ -649,6 +710,12 @@ var logger_user_before = <?php if (isset($_user)) { echo "1"; } else {echo "0";}
   $(".total_basket_submit").each(function() {
      total_basket_new = total_basket_new + parseInt($(this).text());
   });
+
+  //persent = 
+
+  //discount = 
+
+ // let total = total_basket_new - ((total_basket_new / 100) * (discount__coupon));
   
   $(".total_of_bascket_submit").text(total_basket_new);
   console.log(total_basket_new);
@@ -711,6 +778,10 @@ $(this).parent().parent().find('.adress_delivery').css('display', 'none').text('
           $(".button_confirm_bascket").removeClass('not_disabled');
      $(".button_confirm_bascket").addClass('disabled');
   }
+
+  if ($(this).val() == 2) {
+    $(".new_post_container").eq(0).css('display', 'block');
+  }
 });
 
 
@@ -721,6 +792,14 @@ $(".button_confirm_bascket.disabled").click(function() {
       $('.type_delivery:checked').parent().next(".adress_delivery").css('display','block');
        $('.type_delivery:checked').parent().next(".adress_delivery").addClass('new_customer_register_item_input_not_valid');
           $('.type_delivery:checked').parent().next('.adress_delivery').next('.message_display').text('Введіть адресу доставки');
+    }
+    if ($('.type_delivery:checked').val() == 2 && $('#brand-filter').val() == '') {
+      alert('erg');
+         $('.empty_new_post_delivery').css('display', 'block').text('Виберіть місто відправлення ');
+    }
+
+    if ($('.type_delivery:checked').val() == 2 && $('#brand-filter').val() != '' && $('.empty_new_post_department').val() == '') {
+         $('.empty_new_post_department').css('display', 'block').text('Виберіть віддліення нової пошти ');
     }
 
     if ($('.type_user_delivery:checked').val() == undefined) {
@@ -991,5 +1070,192 @@ function buy_parts_send(signature)
 
     });
 
+$(function() {
+
+  let request = '{'+
+'"modelName": "Address",'+
+'"calledMethod": "getCities",'+
+'"methodProperties": {'+
+'},'+
+'"apiKey": "92b2394730158c58577a70d7d9f20fba"'+
+'}';
+
+let request_sities = '{'+
+'"modelName": "AddressGeneral",'+
+'"calledMethod": "getWarehouses",'+
+'"methodProperties": {'+
+'},'+
+'"apiKey": "92b2394730158c58577a70d7d9f20fba"'+
+'}';
+
+  var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.novaposhta.ua/v2.0/json/",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json",
+
+  },
+  "processData": false,
+  "data":request 
+}
+
+let html = ['one', 'two', 'three'];
+
+
+
+$.ajax(settings).done(function (response) { 
+  for (var i = 0; i <  response.data.length; i++) {
+   html.push(response.data[i]['Description']);
+}
+
+$(".list_city").html(html);
+
+    $(document).ready(function() {
+  var availableTags = html;
+  let choose_departments = ['hi'];
+
+  $("#brand-filter").autocomplete({
+    source: availableTags,
+    select: function(event, ui) {
+     choose_departments = find_departments(ui.item.label);
+     setTimeout(function() {
+          $(".new_post_container").eq(1).css('display', 'block');
+
+        display_dapartments(choose_departments);
+     }, 1500);
+    }
+  }).on('focus', function () {
+    $(this).autocomplete('search', ' ');
+  }).on('search', function () {
+    if ($(this).val() === '') {
+      $(this).autocomplete('search', ' ');
+    }
+  })
+  .on('input', function() {
+  });
+  ;
+
+function display_dapartments(choose_departments) {
+  console.log('chhoser'+choose_departments);
+    $("#department-filter").autocomplete({
+    source: choose_departments,
+    select: function(event, ui) { 
+       if ($('.type_user_delivery:checked').val() == 2) {
+
+      if (   $('.user_delivery_surname').val() != "" 
+            && $('.user_delivery_second').val() != "" 
+            && $('.user_delivery_name').val() != ""
+            && $('.user_delivery_phone').val() != "" )
+      {
+      $('.button_confirm_bascket').removeClass('disabled');
+      $('.button_confirm_bascket').addClass('not_disabled');
+    }
+    } else  if ($('.type_delivery:checked').val() == 2) {
+      $('.button_confirm_bascket').removeClass('disabled');
+      $('.button_confirm_bascket').addClass('not_disabled');
+    }
+    }
+  }).on('focus', function () {
+    $(this).autocomplete('search', ' ');
+  }).on('search', function () {
+    if ($(this).val() === '') {
+      $(this).autocomplete('search', ' ');
+    }
+  });
+}
+
+
+});
+
+
+
+});
+});
+
+function find_departments(name) {
+  let request_sities = '{'+
+'"modelName": "AddressGeneral",'+
+'"calledMethod": "getWarehouses",'+
+    '"methodProperties": {'+
+        '"CityName": "'+name+'",'+
+        '"Limit": 40'+
+        '},'+
+'"apiKey": "92b2394730158c58577a70d7d9f20fba"'+
+'}';
+
+  var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://api.novaposhta.ua/v2.0/json/",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json",
+
+  },
+  "processData": false,
+  "data":request_sities 
+};
+
+let options = [];
+$.ajax(settings).done(function (response) {
+    console.log(response);
+
+for (var i = 0; i <  response.data.length; i++) {
+   options.push(response.data[i]['Description']);
+   }
+});
+   return options;
+
+}
+
+
+$(".coupon__section__apply").click(function() {
+
+  let data = $(".coupon__section__field").val();
+
+ $.ajax({
+        url: currency_url+'coupons/get-data',
+        type: 'POST',
+        data: {data: data},
+        success: function(data){ 
+          if (data.status == false) {
+            $('.invalid__coupons').html("Не правильний код купона");
+          }  else {
+            $(".total_of_bascket_submit").html(data.total);
+            $('.invalid__coupons').html('');
+            $(".coupon__section__container").html(`
+                <div class="coupon__section___done">
+            <p>Купон застосовано.</p>
+         </div>
+              `)
+          }
+        }
+  });
+});
+
+$(".unset__coupon").click(function() {
+
+ $.ajax({
+        url: currency_url+'coupons/unset-coupon',
+        type: 'POST',
+        success: function(data){ 
+            $(".coupon__container").html(`
+                <div class="coupon__section">
+           <div class="coupon__section__top">
+             <p class="coupon__section__title">Промокод</p>
+             <div class="coupon__section__button"><i class="fa fa-arrov"></i></div>
+           </div>
+           <div class="coupon__section__container">
+             <input type="text" name="coupon" class="coupon__section__field">
+             <button class="coupon__section__apply" type="button">Застосувати</button>
+           </div>
+         </div>
+              `);
+          }
+  });
+});
 	<?php echo $this->Html->scriptEnd(); ?>
+
 </script>

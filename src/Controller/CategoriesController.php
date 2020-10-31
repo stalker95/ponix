@@ -63,8 +63,9 @@ class CategoriesController extends AppController
     public function view($slug = null)
     {
       $slug = $this->request->params['param1'];
+     // var_dump($slug);
       
-        $category = $this->Categories->find()->contain(['ParentCategories','ParentCategories.ParentCategories','ChildCategories'])->where(['Categories.slug' => $slug])->first();
+        $category = $this->Categories->find()->contain(['ParentCategories','ParentCategories.ParentCategories','ChildCategories'])->where(['Categories.slug LIKE' => $slug])->first();
         //debug($category);
 
          if (!empty($category->child_categories )): 
@@ -119,7 +120,6 @@ class CategoriesController extends AppController
           //debug($this->request);
             $values = '';
             foreach ($this->request['?'] as $key => $value) {
-              echo "1";
               $values = $values.$key.'='.$value."&";
             }
             $action = $this->request->params['param1']."?".$values;

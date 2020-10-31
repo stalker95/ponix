@@ -83,6 +83,10 @@ class AppController extends Controller
         'settingss'        => false,
         'producers_discounts' => false,
         'reviews' => false,
+        'scripts' => false,
+        'xml' => false,
+        'liqpays' => false,
+        'coupons' => false
     );
 
     /**
@@ -284,9 +288,39 @@ class AppController extends Controller
         
 
         $this->loadModel('Seo');
+        $this->loadModel('Statistics');
 
 
-
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
+        $less_ip = $this->Statistics->find(
+                'all',
+                    array(
+                        'conditions' => array(
+                        
+                        'Statistics.created BETWEEN NOW() -INTERVAL 1 DAY AND NOW()'
+                        )
+                    )
+                 )
+        ->order('id', 'DESC')
+        ->limit(1)
+        ->first();
+       // $less_ip;
+      //  debug($less_ip);
+        if (empty($less_ip)) {
+            $new_less_ip = $this->Statistics->newEntity();
+            $new_less_ip->created = date('Y-m-d H:i:s');
+            $new_less_ip->ip = $ip;
+            $new_less_ip->year = date('Y');
+            $new_less_ip->month = date('m');
+            $new_less_ip->day = date('j');
+            $this->Statistics->save($new_less_ip);
+        }
 
         $seo = $this->Seo->find()->first();
         $this->set(compact('seo')); 
@@ -302,7 +336,7 @@ class AppController extends Controller
                 $email= new Email('default');
                 $email->emailFormat('html');
                 $email->transport('default');
-                $email->from('sender@proftorg.in.ua', 'Компанія Профторг');
+                $email->from('sender@proftorg.in.ua', 'Компанія Понікс');
                 $email->subject($subject);
                 $email->to($to);
                 
@@ -316,7 +350,7 @@ class AppController extends Controller
                 $new_email->subject($subject);
                 $new_email->to('petrorozhak@gmail.com');
                 
-             $new_email->send($text);
+           //  $new_email->send($text);
 
         
     }

@@ -56,7 +56,7 @@
 
 
           <li class="<?= $nav_['options'] ? 'active' : '' ?> treeview
-             <?php  if($nav_['category'] OR $nav_['products'] OR $nav_['attributes_item'] OR $nav_['options_group'] OR $nav_['producers']  OR $nav_['attributes']){ echo 'active'; } ?>
+             <?php  if($nav_['category'] OR $nav_['coupons'] OR $nav_['products'] OR $nav_['attributes_item'] OR $nav_['options_group'] OR $nav_['producers']  OR $nav_['attributes']){ echo 'active'; } ?>
   ">
           <a href="#">
             <img src="<?= $this->Url->build('/img/katalog.svg', ['fullBase' => true]) ?>" alt=""> <span>Каталог</span>
@@ -111,6 +111,11 @@
         <li class="<?= $nav_['producers'] ? 'active' : '' ?>">
             <a href="<?php echo $this->Url->build(['controller' => 'producers', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>">
                 <i class="fa fa-angle-double-right"></i> <span><?php echo __('Виробники'); ?></span>
+            </a>
+        </li>
+        <li class="<?= $nav_['coupons'] ? 'active' : '' ?>">
+            <a href="<?php echo $this->Url->build(['controller' => 'coupons', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>">
+                <i class="fa fa-angle-double-right"></i> <span><?php echo __('Купони'); ?></span>
             </a>
         </li>
           </ul>
@@ -185,7 +190,7 @@
 <?php endif; ?>  
 
 
-     <li class="<?php if ($nav_['settingss'] OR $nav_['currencys'] OR $nav_['managers'] OR $nav_['socials'] OR $nav_['producers_discounts'] )  { echo 'active'; } ?> treeview">
+     <li class="<?php if ($nav_['settingss'] OR $nav_['currencys'] OR $nav_['managers'] OR $nav_['liqpays'] OR $nav_['socials'] OR $nav_['producers_discounts'] )  { echo 'active'; } ?> treeview">
           <a href="#">
              <img src="<?= $this->Url->build('/img/new_setting.svg', ['fullBase' => true]) ?>" alt=""> <span>Налаштування</span>
             <span class="pull-right-container">
@@ -196,10 +201,18 @@
             <li class="<?php if ($nav_['settingss'])  { echo 'active'; } ?>">
                 <a href="<?php echo $this->Url->build(['controller' => 'settings', 'action' => 'edit', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>"><i class="fa fa-angle-double-right"></i>Загальні налаштування </a>
             </li>
+            <li class="<?php if ($nav_['xml'])  { echo 'active'; } ?>">
+                <a href="<?php echo $this->Url->build(['controller' => 'xml', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>"><i class="fa fa-angle-double-right"></i>Google Shopings</a>
+            </li>
            <?php if ($user->is_admin() OR $user->is_abs()): ?>
              <li class="<?php if ($nav_['managers'])  { echo 'active'; } ?>">
                 <a href="<?php echo $this->Url->build(['controller' => 'managers', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?> "><i class="fa fa-angle-double-right"></i>Менеджери</a>
             </li>
+            <li class="<?= $nav_['liqpays'] ? 'active' : '' ?>">
+            <a href="<?php echo $this->Url->build(['controller' => 'liqpays', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>">
+                <i class="fa fa-angle-double-right"></i><span><?php echo __('Lisqpays'); ?></span>
+            </a>
+        </li> 
           <?php endif; ?>
             <li class="<?= $nav_['currencys'] ? 'active' : '' ?>">
             <a href="<?php echo $this->Url->build(['controller' => 'currency', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>">

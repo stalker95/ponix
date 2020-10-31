@@ -82,11 +82,15 @@ class CartsController extends AppController
        array_push($_SESSION['cart'][$index]['array_option_value'], $data['total_options'][$key]);
       endforeach;
     }
+    echo "string";
 
-    if (isset($products_options)) {
+    if (isset($products_options) AND $_SESSION['cart'][$index]['product']['price'] == 0 AND empty($_SESSION['cart'][$index]['array_option_item'])) {
+      echo "1";
       array_push($_SESSION['cart'][$index]['array_options_name'], $products_options['options_item']->option->name);
       array_push($_SESSION['cart'][$index]['array_option_item'],  $products_options['options_item']->name);
       array_push($_SESSION['cart'][$index]['array_option_value'], $products_options->value);
+      $price_product = $products_options->value;
+      $_SESSION['cart'][$index]['array_option_value'] = [];
     }
 
 
@@ -110,7 +114,9 @@ class CartsController extends AppController
        // debug($products_discount->producers_discounts[0]['discount']);
       
       $persent = 0;
+      if ($_SESSION['cart'][$index]['product']['price'] != 0) {
       $price_product = $_SESSION['cart'][$index]['product']['price'];
+    }
       if (!isset( $_SESSION['cart'][$index]['total_sum'])) {
 
         if (isset($products_discount->producers_discounts[0]['discount'])) {
@@ -131,18 +137,26 @@ class CartsController extends AppController
             }
         endforeach; 
 
-    if (isset($products_options)) {
+    if (isset($products_options) AND $_SESSION['cart'][$index]['product'] == 0 AND empty($_SESSION['cart'][$index]['array_option_item'])) {
       $price_product = $products_options->value;
     }
 
         $sum = ($_SESSION['cart'][$index]['count'] * $price_product) + ($_SESSION['cart'][$index]['count'] * array_sum($_SESSION['cart'][$index]['array_option_value']));
         if (isset($products_options)) {
-          $sum = $products_options->value;
+        //  $sum = $products_options->value;
           $_SESSION['cart'][$index]['is_empty_price'] = true;
         }
 
+        if ($price_product == 0) {
+          $price_product = $sum;
+          $_SESSION['cart'][$index]['array_option_value'] = [];
+        } 
+
+
+
          $_SESSION['cart'][$index]['total_sum'] = $sum;
          $_SESSION['cart'][$index]['one_price'] = $price_product;
+         $_SESSION['cart'][$index]['one_price'] = $_SESSION['cart'][$index]['one_price'] + $_SESSION['cart'][$index]['array_option_value'];
       }
       debug($_SESSION['cart'][$index]);
 
@@ -151,7 +165,7 @@ class CartsController extends AppController
       $this->RequestHandler->renderAs($this, 'json');
       $this->response->disableCache();
       $this->response->type('application/json');
-      $this->response->body(json_encode(array('result' => $data)));
+      $this->response->body(json_encode(array('result' => $price_product)));
     }
 
     public function change()

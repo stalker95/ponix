@@ -59,7 +59,7 @@ class CallsController extends AppController
       $this->response->disableCache();
       $this->response->type('application/json');
         $data = $this->request->getData();
-        $subject = "Замовлення дзвінка на сайті ".$_SERVER['SERVER_NAME']."";
+        $subject = "Замовлення дзвінка на сайті http://www.proftorg.in.ua/";
         $text = "Ім'я ".$data['user_name']." \n Телефон".$data['user_phone']."";
          $this->sendEmail($settings->email, $subject, $text);
         $this->response->body(json_encode(array('status' => 'true')));

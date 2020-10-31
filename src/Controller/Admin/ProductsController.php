@@ -29,6 +29,8 @@ class ProductsController extends AppController
         $this->loadModel('ProductsOptions');
         $this->loadModel('Attributes');
         $this->loadModel('Discounts');
+        $this->loadModel('Coupons');
+        $this->loadModel('CouponsProducts');
     }
 
     /**
@@ -74,6 +76,7 @@ class ProductsController extends AppController
         $product = $this->Products->newEntity();
         $first_options = $this->Options->find()->order('rand()')->toArray();
         $attributes = $this->Attributes->find()->contain('AttributesItems')->toArray();
+        $coupons = $this->Coupons->find()->toArray();
 
         $find_product = $this->Products->find()->where(['cod' => $this->request->getData('cod')])->first();
 
@@ -128,6 +131,8 @@ class ProductsController extends AppController
 
     $product->saveOptions($this->request->getData(), $product->id);
     $product->saveAttributes($this->request->getData('attributes'), $this->request->getData('attributes_values'), $product->id);
+        $product->saveCoupons($this->request->getData('coupons'), $this->request->getData('coupons_values'), $product->id);
+
    // $product->saveMainPicture($this->request->getData('image'));
             if ($this->request->getData('image.error')['error'] == 0) {
             $mm_dir = new Folder(WWW_ROOT . DS . 'products', true, 0777);
@@ -159,7 +164,7 @@ class ProductsController extends AppController
     
         $category_id = $this->Products->Categories->find('list')->order('name ASC');
         $producer_id = $this->Products->Producers->find('list', ['limit' => 200]);
-        $this->set(compact('product', 'category_id', 'producer_id','first_options','attributes'));
+        $this->set(compact('product', 'category_id', 'producer_id','first_options','attributes', 'coupons'));
         $this->nav_['products'] = true;
     }
 
@@ -177,8 +182,10 @@ class ProductsController extends AppController
         ]);
         $first_options = $this->Options->find()->order('rand()')->toArray();
         $products_gallery = $this->ProductsGallery->find()->where(['product_id' => $id])->order('position ASC')->toArray();
-        $attributes_products = $this->AttributesProducts->find()->contain(['AttributesItems'])->where(['product_id' => $id])->toArray();        
+        $attributes_products = $this->AttributesProducts->find()->contain(['AttributesItems'])->where(['product_id' => $id])->toArray();  
+        $coupons_products = $this->CouponsProducts->find()->contain(['Coupons'])->where(['product_id' => $id])->toArray();              
        $option_group = $product->getOptionsGroup($product->id, 100);
+        $coupons = $this->Coupons->find()->toArray();
 
        $discounts = $this->Discounts->find()->where(['product_id' => $product->id])->toArray();
 
@@ -196,6 +203,13 @@ class ProductsController extends AppController
               }
             }
 
+            foreach ($coupons_products as $key => $value) {
+              if ($value['id'] != NULL) {
+              $atrubute_tovar =  $this->CouponsProducts->get($value['id']);
+               $this->CouponsProducts->delete($atrubute_tovar);
+              }
+            }
+
            $discounts_price = $this->request->getData('discount_price');
                 $discounts_start_date = $this->request->getData('date_begin');
                 $discounts_end_date = $this->request->getData('date_end');
@@ -207,6 +221,7 @@ class ProductsController extends AppController
             if ($this->Products->save($product)) {
                   $product->saveOptions($this->request->getData(), $product->id);
                   $product->saveAttributes($this->request->getData('attributes'), $this->request->getData('attributes_values'), $product->id);
+                  $product->saveCoupons($this->request->getData('coupons'), $this->request->getData('coupons_values'), $product->id);
                   $product->saveDiscounts(
                             $this->request->getData('discount_price'),
                             $this->request->getData('date_begin'),
@@ -241,7 +256,7 @@ class ProductsController extends AppController
         $category_id = $this->Products->Categories->find('list')->order('name ASC');
         $producer_id = $this->Products->Producers->find('list', ['limit' => 200]);
         $this->nav_['products'] = true;
-        $this->set(compact('product', 'category_id', 'products_gallery', 'attributes','attributes_products', 'producer_id','option_group','first_options','id','discounts'));
+        $this->set(compact('product', 'category_id', 'products_gallery', 'attributes','attributes_products', 'producer_id','option_group','first_options','id','discounts', 'coupons_products', 'coupons'));
     }
 
     /**

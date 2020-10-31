@@ -82,14 +82,14 @@ class ProductsController extends AppController
 
         $attributes_products = $this->AttributesProducts->find()->contain(['AttributesItems'  => [
                                                                      'conditions' => [
-                                                                       'AttributesItems.parent_id' => 1
+                                                                       'AttributesItems.parent_id' => 8
                                     ]]])->where(['AttributesProducts.product_id' => $product->id])->toArray();
 
         $main_attributes =  $this->AttributesProducts
                                     ->find()
                                     ->contain(['AttributesItems','AttributesItems.ParentAttributesItems' => [
                                                                      'conditions' => [
-                                                                       'ParentAttributesItems.id' => 1
+                                                                       'ParentAttributesItems.id' => 8
                                     ]],
                                         'AttributesItems.AttributesProducts' => [
                                                                      'conditions' => [

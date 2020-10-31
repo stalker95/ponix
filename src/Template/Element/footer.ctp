@@ -13,7 +13,7 @@
 			<div class="malling_right">
 				<div class="mailing_form">
 					<form action="" class='create_new_customer'>
-						<input type="email" placeholder="Введіть ваш email" name="user_email">
+						<input type="email" placeholder="Введіть ваш email" name="user_email" required="required">
 						<input type="submit" value="Підписатися">
 					</form>
 				</div>
@@ -87,7 +87,7 @@
 					</div>
 					<div class="footer_contacts_item">
 						<div class="footer_contacts_icon">
-							<i class="far fa-clock"></i>
+							<i class="fa fa-clock"></i>
 						</div>
 						<div class="footer_contacts_title">
 							<p><?= $settings->time ?></p>
@@ -98,6 +98,7 @@
 			</div>
 			<div class="col-md-3">
 				<div class="social_links">
+					<?php if (!empty($socials[0]['image'])): ?>
 					<p class="social_links_title footer-title">Ми в соц мережах</p>
 					<div class="social_links_container">
 
@@ -108,9 +109,8 @@
 							</div>
 						<?php endif; ?>
 						<?php endforeach; ?>
-
-						
 					</div>
+					<?php endif; ?>
 					<div class="payment_methods">	
 						<p class="social_links_title footer-title">Способи оплати</p>
 						<div class="social_links_payments">

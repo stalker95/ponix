@@ -158,7 +158,7 @@
 						<p><?= $abouts->description ?></p>
 					</div>
 				</div>	
-				<div class="col-md-4">
+				<div class="col-md-4 about_right">
 					<a href="/">
                             <img src='<?= $this->Url->build("/settings/$settings->logo", ["fullBase" => true]) ?>' alt="">
                         </a>
@@ -249,7 +249,7 @@
 	</div>
 </section>
 <?php endif; ?>
-
+<?php if (!empty($blogs)): ?>
 <section class="news">
 	<div class="section_inside container">
 		<div class="section_top">
@@ -310,7 +310,7 @@
 		</div>
 	</div>
 </section>
-
+<?php endif; ?>
 <section class="producer">
 	<div class="section_inside container">
 		<div class="section_top">

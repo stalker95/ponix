@@ -319,4 +319,20 @@ class Product extends Entity
     {
 
     }
+
+     public function saveCoupons($coupons, $attributes_values, $product_id)
+    {
+        $this->CouponsProducts = TableRegistry::get('coupons_products');
+         if (!empty($coupons)) {
+      foreach ($coupons as $key => $value) {
+                $attribute_product = $this->CouponsProducts->newEntity();
+                $attribute_product->product_id = $product_id;
+                $attribute_product->coupon_id = (int)$value;
+                $attribute_product->discount = trim($attributes_values[$key]);
+                if (!empty($attributes_values[$key])) {
+                $this->CouponsProducts->save($attribute_product);
+              }
+      }
+      }
+    }
 }

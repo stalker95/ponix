@@ -13,7 +13,10 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo $this->Url->build(['controller' => 'orders', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>" class="small-box-footer">
+              Детальніше <i class="fa fa-arrow-circle-right"></i>
+            </a>
+
           </div>
         </div>
         <!-- ./col -->
@@ -21,14 +24,16 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3><?= $total_orders ?></h3>
 
-              <p>Bounce Rate</p>
+              <p>Сумма продаж</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo $this->Url->build(['controller' => 'orders', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>" class="small-box-footer">
+              Детальніше <i class="fa fa-arrow-circle-right"></i>
+            </a>
           </div>
         </div>
         <!-- ./col -->
@@ -43,7 +48,9 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo $this->Url->build(['controller' => 'users', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>" class="small-box-footer">
+              Детальніше <i class="fa fa-arrow-circle-right"></i>
+            </a>
           </div>
         </div>
         <!-- ./col -->
@@ -58,7 +65,10 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?php echo $this->Url->build(['controller' => 'users', 'action' => 'index', '_full' => true, 'prefix' => 'admin', 'plugin' => false]); ?>" class="small-box-footer">
+              Детальніше <i class="fa fa-arrow-circle-right"></i>
+            </a>
+            
           </div>
         </div>
         <!-- ./col -->
@@ -101,6 +111,8 @@
     </section>
     <!-- /.content -->
   </div>
+  <?php $str = implode(',', array_keys($final)); ?>
+<?php $values = implode(',', array_values(array_column($final, 'amount'))); ?>
   <!-- /.content-wrapper -->
     <script>
 
@@ -121,7 +133,7 @@
     // This will get the first returned node in the jQuery collection.
 
     var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels  : [<?php echo $str; ?>],
       datasets: [
         {
           label               : 'Electronics',
@@ -131,18 +143,9 @@
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
+          data                : [<?php echo $values; ?>]
         },
-        {
-          label               : 'Digital Goods',
-          fillColor           : 'rgba(60,141,188,0.9)',
-          strokeColor         : 'rgba(60,141,188,0.8)',
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
-        }
+        
       ]
     }
 
@@ -154,9 +157,6 @@
     var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
     var barChart                         = new Chart(barChartCanvas)
     var barChartData                     = areaChartData
-    barChartData.datasets[1].fillColor   = '#00a65a'
-    barChartData.datasets[1].strokeColor = '#00a65a'
-    barChartData.datasets[1].pointColor  = '#00a65a'
     var barChartOptions                  = {
       //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
       scaleBeginAtZero        : true,

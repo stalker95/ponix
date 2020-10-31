@@ -139,7 +139,7 @@ class QuickOrdersController extends AppController
       $product = $this->Products->get($data['product_id']);
 
        $subject = "Швидке замовлення на сайті http://www.proftorg.in.ua/";
-        $text = "Ім'я: ".$data['user_name']." \n Телефон: ".$data['user_phone']." Товар: $product->title";
+        $text = "Ім'я: ".$data['user_name']." \n Телефон: ".$data['user_phone']." Товар: <a href='http://" . $_SERVER['SERVER_NAME']."/products/".$product->slug."'>".$product->title."</a>";
          $this->sendEmail($settings->email, $subject, $text);
 
       $this->QuickOrders->save($quick_order);

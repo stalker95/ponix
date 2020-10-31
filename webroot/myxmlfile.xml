@@ -1,0 +1,269 @@
+<!--This XML file does not appear to have any style information associated with it. The document tree is shown below. -->
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+<channel>
+<title>Example - Online Store</title>
+<link>http://www.example.com</link>
+<description>
+This is a sample feed containing the required and recommended attributes for a variety of different products
+</description>
+<!--
+ First example shows what attributes are required and recommended for items that are not in the apparel category 
+--><item>
+<!--  The following attributes are always required  -->
+<g:id>306</g:id>
+<g:title>Соковитискач для цитрусових Remta ES10 Elegance</g:title>
+<g:description><p> </p>
+
+<p>Соковитискач для цитрусових Remta ES10 Elegance електрична призначена для швидкого отримання фрешу з цитрусових фруктів за допомогою обертання центрифуги. Корпус і кран виконані з нержавіючої сталі. Колба з ударостійкого пластику.</p>
+</g:description>
+<g:link>http://ponix//products/sokovitiskach-dlja-citrusovih-remta-es10-elegance</g:link>
+<g:image_link>http://ponix/img/products/d52ff58466540b431bf8985958430b1c.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>111 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>14174</g:gtin>
+<g:brand>Remta</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item><item>
+<!--  The following attributes are always required  -->
+<g:id>431</g:id>
+<g:title>Соковитискач GASTRORAG HA-007</g:title>
+<g:description><pre>
+Соковитискач GASTRORAG HA-007 cлужить для отримання соку з усіх видів фруктів і овочів. Дана модель є професійним апаратом, який бездоганно працює протягом всієї зміни, забезпечуючи потокове приготування свіжих фрешів. Апарат має грамотно продуману, ергономічну конструкцію, в якій передбачено контейнер для витиснутого соку об&#39;ємом у 1,5 літри і відсік для відпрацьованого шмиху об&#39;ємом у 2,2 літри.</pre>
+
+<p> </p>
+
+<p>Cоковитискач Gastrorag HA-007 оснащений відцентровою системою відтискання продуктів і обладнана 2-х-швидкісним двигуном, який забезпечує обертання терки-конусу зі швидкістю 7500 або 11000 обертів на хвилину. В ході обробки продуктів відходи відділяються від соку і скидаються в спеціальний відсік автоматично.</p>
+
+<p> </p>
+
+<p>Професійний соковитискач Gastrorag HA-007 виготовлений ​​з високоміцних матеріалів:</p>
+
+<p>  корпус виконаний з комбінації нержавіючої сталі і пластика;</p>
+
+<p>  робочий вузол апарату виготовлений виключно з високоміцної нержавіючої сталі.</p>
+</g:description>
+<g:link>http://ponix//products/sokovitiskach-gastrorag-ha-007</g:link>
+<g:image_link>http://ponix/img/products/345f687cdf94a3de0fc3fc2a75eb2a5b.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>4649 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>14594</g:gtin>
+<g:brand>Gastrorag</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item><item>
+<!--  The following attributes are always required  -->
+<g:id>1685</g:id>
+<g:title>Прес для цитрусових RAUDER LSPRM</g:title>
+<g:description><ul>
+	<li>
+	<div style="box-sizing:border-box"><span style="font-size:16px">Могутня станина з гумовими ніжками дозволяє вичавлювати гранат практично насухо</span></div>
+	</li>
+	<li>
+	<div style="box-sizing:border-box"><span style="font-size:16px">Наявність м&#39;якоті в соку можна регулювати силою віджиму продукту в соковижималці</span></div>
+	</li>
+	<li>
+	<div style="box-sizing:border-box"><span style="font-size:16px">Легке обслуговування та миття (деталі можна мити у посудомийній машині)</span></div>
+	</li>
+</ul>
+
+<hr />
+<div style="-webkit-text-stroke-width:0px; background-color:#ffffff; box-sizing:border-box; color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px"><span style="font-size:16px">Соковитискач для цитрусових і граната Rauder LSPRM механічний, важільного типу являє собою вертикальний прес. У його середній частині є спеціальний конус з технологічними отворами, на який кладеться половинка граната, апельсина, лимона, або інший цитрусовий. За рахунок спеціального притискного пристосування, що приводиться в рух рукояткою, сік повністю вичавлюється в стакан під пресом. При цьому слід зазначити, що шкірка продукту залишається практично сухою. Сік виходить досить чистим.</span></div>
+
+<div style="-webkit-text-stroke-width:0px; background-color:#ffffff; box-sizing:border-box; color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px"><span style="font-size:16px">Особливістю цитрус-преса моделі BECKERS SPR-M є система важеля притиску, яка дозволяє в один рух легким натисканням отримати сік з граната, апельсина, лимона або грейпфрута за мить. Причому сила, що застосовується для віджиму граната, відносно невелика, так як натиснувши на ручку соковижималки, продукт потрапляє під потужний прес механізму, який вже сам видавлює сік з продукту. Завдяки віджиманню ми отримую максимально чистий сік, який в корені відрізняється від соку, вичавленого на відцентрових соковижималках, що перемелює в сік всю м&#39;якоть. Такий сік легко втамовує спрагу і має особливо приємний смак, а крім усього сказаного  він є ще й дуже корисним.</span></div>
+</g:description>
+<g:link>http://ponix//products/pres-dlya-cytrusovyx-rauder-lsprm</g:link>
+<g:image_link>http://ponix/img/products/ef262fe6fe12552b820972df1a753dcf.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>32 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>15398</g:gtin>
+<g:brand>Rauder</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item><item>
+<!--  The following attributes are always required  -->
+<g:id>1686</g:id>
+<g:title>Прес для цитрусових RAUDER LSPRM-2 з функцією нарізки фруктів та овочів</g:title>
+<g:description><div style="-webkit-text-stroke-width:0px; background-color:#ffffff; box-sizing:border-box; color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px"><span style="font-size:16px">Соковитискач для цитрусових і граната працює за принципом ручного притиску, завдяки мощьних пресу сік з цитрусових і граната видавлюється повністю.</span></div>
+
+<div style="-webkit-text-stroke-width:0px; background-color:#ffffff; box-sizing:border-box; color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px"><span style="font-size:16px">Оснащений чотирма насадками для нарізки соломкою 6 і 8 і 12 мм і для нарізки на 8 частин.  </span></div>
+
+<div style="-webkit-text-stroke-width:0px; background-color:#ffffff; box-sizing:border-box; color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px"><span style="font-size:16px">Колба и конус - нерж.сталь -   120 мм.</span></div>
+</g:description>
+<g:link>http://ponix//products/es-dlya-cytrusovyx-rauder-lsprm-2-z-funkciyeyu-narizky-fruktiv-ta-ovochiv</g:link>
+<g:image_link>http://ponix/img/products/c7643ee7e6eb743c920078fee9897d3e.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>84 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>15399</g:gtin>
+<g:brand>Rauder</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item><item>
+<!--  The following attributes are always required  -->
+<g:id>1687</g:id>
+<g:title>Соковитискач RAUDER LGM-801A</g:title>
+<g:description><ul>
+	<li><span style="font-size:16px">Автоматичне виштовхування м&#39;якоті</span></li>
+	<li><span style="font-size:16px">Пластиковий контейнер для відходів</span></li>
+	<li><span style="font-size:16px">Широкий завантажувальний патрубок</span></li>
+	<li><span style="font-size:16px">Система безпеки - пуск відбувається, коли всі деталі зафіксовані</span></li>
+</ul>
+
+<div style="-webkit-text-stroke-width:0px; background-color:#ffffff; box-sizing:border-box; color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:12px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:400; letter-spacing:normal; orphans:2; text-align:left; text-decoration-color:initial; text-decoration-style:initial; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px">
+<hr />
+<p style="margin-left:0px; margin-right:0px"><span style="font-size:16px">Соковитискач для твердих фруктів і овочів RAUDER LGM-801A призначена для отримання соку з різних видів овочів, фруктів і ягід. Якісна і недорога соковижималка Rauder для фрешу бар, кафе, вуличної торгової точки, бару і ресторану.</span></p>
+
+<p style="margin-left:0px; margin-right:0px"><span style="font-size:16px">Електричний професійниий соковитискач RAUDER LGM-801A оснащений потужним двигуном і конічним сепаратором з нержавіючої сталі, який автоматично відкидає макуху в контейнер для відходів.</span></p>
+
+<p style="margin-left:0px; margin-right:0px"><span style="font-size:16px">Широкий завантажувальний патрубок дозволяє завантажувати плоди цілком, що економить час на проміжних операціях і підвищує вихід соку У комплект поставки входить контейнер для соку і місткий контейнер для макухи.</span></p>
+</div>
+</g:description>
+<g:link>http://ponix//products/sokovytyskach-rauder-lgm-801a</g:link>
+<g:image_link>http://ponix/img/products/021a73b5db0b797c424e1a3feb2dcf96.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>84 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>15400</g:gtin>
+<g:brand>Rauder</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item><item>
+<!--  The following attributes are always required  -->
+<g:id>1910</g:id>
+<g:title>СОКОВИТИСКАЧ JAU J-800 </g:title>
+<g:description><p>Соковижималка JAU J-800 може застосовуватися для отримання соку з різноманітних фруктів і овочів. У цьому апараті застосована електромеханічна система управління. Соковижималка для овочів і фруктів J-800 дуже зручна в зверненні. Виконання такого апарату відповідає всім європейським стандартам. Матеріал корпусу - нержавіюча сталь, що забезпечує довговічність експлуатації і ізносостойкость.діаметр завантажувального отвору 80 мм<br />
+пуск відбувається тільки коли всі деталі зафіксовані<br />
+в комплекті стакан з віддільником піни<br />
+корпус з нержавіючої сталі</p>
+</g:description>
+<g:link>http://ponix//products/sokovytyskach-jau-j-800-</g:link>
+<g:image_link>http://ponix/img/products/cf139111df9fa503d8d8e82b434cc576.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>108 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>14752</g:gtin>
+<g:brand>AIRHOT</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item><item>
+<!--  The following attributes are always required  -->
+<g:id>1911</g:id>
+<g:title>СОКОВИТИСКАЧ МЕХАНІЧНИЙ JAU J-135 </g:title>
+<g:description><p>Соковижималка для цитрусових J-135 це механічне рішення від JAU, яке здатне в повній мірі задовольнити потреби малих підприємств громадського харчування і барів. Дана соковижималка швидко і якісно вичавить сік зі свіжих плодів при цьому дозволить не витрачати електроенергію. Модель обладнана фільтром запобігає потраплянню небажаних частин цитрусових в стакан.пресс для гранатів і цитрусових<br />
+принцип роботи механічний<br />
+корпус хромований з високоміцної сталі<br />
+матеріал конічного фільтра - нержавіюча сталь</p>
+</g:description>
+<g:link>http://ponix//products/sokovytyskach-mexanichnyj-jau-j-135-</g:link>
+<g:image_link>http://ponix/img/products/7158a54febce544c3539bc2014d6a710.jpg</g:image_link>
+<g:condition>used</g:condition>
+<g:availability>in stock</g:availability>
+<g:price>61 USD</g:price>
+<g:shipping>
+<g:country>US</g:country>
+<g:service>Standard</g:service>
+<g:price>14.95 USD</g:price>
+</g:shipping>
+<!--
+ 2 of the following 3 attributes are required fot this item according to the Unique Product Identifier Rules 
+-->
+<g:gtin>14753</g:gtin>
+<g:brand>AIRHOT</g:brand>
+<g:mpn>22LB4510/US</g:mpn>
+<!--
+ The following attributes are not required for this item, but supplying them is recommended 
+-->
+<g:google_product_category>
+Electronics > Video > Televisions > Flat Panel Televisions
+</g:google_product_category>
+<g:product_type>Consumer Electronics > TVs > Flat Panel TVs</g:product_type>
+</item></channel>
+</rss>

@@ -64,13 +64,15 @@ class MainController extends AppController
         $blogs = $this->Blogs
                       ->find('all')
                       ->order('id DESC')
-                      ->limit(3)
                       ->toArray();
+
+       // debug($blogs);
                       
         foreach ($blogs as $key => $value) {
            $_mDD = date("m", strtotime($value['created']));
             $blogs[$key]['month'] = $_monthsList[$_mDD];
         }
+        //debug($blogs);
 
         $data = date("Y-m-d H:i:s");
         

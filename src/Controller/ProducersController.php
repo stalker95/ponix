@@ -55,7 +55,7 @@ class ProducersController extends AppController
         $keywords = $producer->keywords;
 
         $products = $this->Paginate($this->Products->find()
-            ->contain(['Actions' => [
+            ->contain(['ActionsProducts.Actions' => [
                                                                      'conditions' => [
                                                                        'Actions.date_end >' => $new_date
             ]],'Producers','Producers.ProducersDiscounts','Discounts','Wishlists','Rewiev'=> [

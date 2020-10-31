@@ -1241,7 +1241,16 @@ button.cancel_button {
     text-align: center;
     margin-top: 15px;
 }
-.delete_new_attribute {
+.add_new_promo  {
+    border-radius: 2px;
+    border: none;
+    padding: 8px 12px;
+    text-align: right;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 15px;
+}
+.delete_new_attribute, .delete_new_coupon {
        border-radius: 2px;
     border: none;
     padding: 8px 12px;
@@ -1751,6 +1760,34 @@ a.product_container_buttons_add {
     width: 100%;
     padding: 3px;
 }
+
+.products_container .promo_container thead   {
+    border: 1px solid #707070;
+}
+.products_container .promo_container table {
+    width: 100%;
+}
+.products_container .promo_container thead th {
+    border-right: 1px solid #707070;
+    padding: 8px;
+}
+.products_container .promo_container table tbody td {
+    padding: 14px 10px;
+}
+.products_container .promo_container table tbody tr {
+    border: 1px solid #707070;
+}
+.products_container .promo_container table tbody td {
+    border-right: 1px solid #707070;
+}
+.products_container .promo_container table tbody td:last-child {
+    border-right: 0px;
+}
+.products_container .promo_container table tbody td input {
+    width: 100%;
+    padding: 3px;
+}
+
 .products_container .delete_discount {
     border-radius: 2px;
     border: none;

@@ -14,6 +14,15 @@
                           <?php   endforeach; ?>
                         </div>
 
+    <div class="coupons_list coupons_list_parent" style="display: none;">
+                          <?php  foreach ($coupons as $key => $value): ?>
+                            <div class="coupons_list_item">
+                              <p class="coupons_list_item_title  choose_coupon" data-coupon="<?= $value['id'] ?>" data-name="<?= $value['name'] ?>"><?= $value['name']; ?></p>
+                            </div>
+                          <?php   endforeach; ?>
+                        </div>
+
+
     <section class="content white_background products_container">
     <?= $this->Form->create($product,['type' => 'file']); ?>
     <div class="row">
@@ -42,6 +51,9 @@
               </div>
               <div class="products_add_tabs_item">
                 <p>Знижки</p>
+              </div>
+              <div class="products_add_tabs_item">
+                <p>Промокод</p>
               </div>
               <div class="products_add_tabs_item">
                 <p>Атрибути</p>
@@ -141,7 +153,7 @@
             </div>
             <div class="playlist__managment--item__right currency_flex">
               <div class="playlist--item--sub">
-                  <?=  $this->Form->control('price',array('label' => 'Ціна','type'=>'number','min'=>0,'class'=>'form-control'));?>    
+                  <?=  $this->Form->control('price',array('label' => 'Ціна','type'=>'number','min'=>0,'class'=>'form-control price-product'));?>    
               </div>
               <div class="choose_currency">
                 <div class="choose_currency_title"><p>Виберіть валюту</p></div>
@@ -254,6 +266,25 @@
                  </table>
                  <div class="add_new_attribute_container">
                     <button class="add_new_discount btn-primary" type="button">
+                      <i class="fa fa-plus"></i>
+                    </button>
+              </div>
+               </div>
+            </div>
+            <div class="product_container_item" style="display: none;">
+                             <div class="promo_container">
+                 <table class="coupons_table">
+                   <thead>
+                     <th>Промокод</th>
+                     <th>Знижка</th>
+                     <th>Ціна з промокодом</th>
+                     <th>Дія</th>
+                   </thead>
+                   <tbody>
+                   </tbody>
+                 </table>
+                 <div class="add_new_attribute_container">
+                    <button class="add_new_promo btn-primary" type="button">
                       <i class="fa fa-plus"></i>
                     </button>
               </div>
@@ -395,10 +426,13 @@
 <script>
   
   var option_url = '<?= $this->Url->build(['controller' => 'options', 'action' => 'get-list-options', '_full' => true]) ?>';
-  var attributes_url = '<?= $this->Url->build(['controller' => 'attributes', 'action' => 'get-list-attributes', '_full' => true]) ?>';
+  var attributes_url = '<?= $this->Url->build(['controller' => 'attributes', 'action' => 'get-list-attributes', '_full' => true]) ?>';  
+  var coupons_url = '<?= $this->Url->build(['controller' => 'coupons', 'action' => 'get-list-coupons', '_full' => true]) ?>';
 </script>
 <?= $this->Html->script('admin/options.js?v=123'); ?>
 <?= $this->Html->script('admin/attributes.js?v=123'); ?>
+<?= $this->Html->script('admin/coupons.js?v=123'); ?>
+
 <script>
     $(document).ready(function () {
        CKEDITOR.replace( 'editor1');
