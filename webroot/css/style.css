@@ -1225,7 +1225,7 @@ min-height: 345px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 150px 75px;
+    padding: 112px 75px;
     position: relative;
 }
 .center_slider_item_left {
@@ -1241,6 +1241,7 @@ min-height: 345px;
 /*max-width: 285px; */
    /* height: 286px; 
     object-fit: cover; */
+    object-fit: none;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1834,8 +1835,8 @@ border:  1px solid #000;
     display: block;
     width: 100%;
     padding: 10px;
-    color: #000;
-    background: #FCDB38;
+    color: #fff;
+    background: #EE2D7A;
     border: none;
     border-radius: 3px;
 }
@@ -1875,7 +1876,8 @@ border:  1px solid #000;
     font-weight: 400;
 }
 .order_item_bottom_tabs_item_active {
-    background: #FCDB38;
+    background: #EE2D7A;
+    color: #fff;
 }
 .order_item_bottom_tabs_item {
     padding: 5px 20px;
@@ -3803,10 +3805,10 @@ a.product_buttons_item:hover {
     padding: 12px 9px;
 }
 .bascet_bottom_right_link {
-    background: #FCDB38;
+    background: #EE2D7A;
     padding: 9px 9px;
     width: 100%;
-    color: #000;
+    color: #fff;
     display: block;
     margin-top: 15px;
 }
@@ -3971,7 +3973,8 @@ p.user_phone_item {
     cursor: pointer;
     font-size: 16px;
     border: none;
-    background: #FCDB38;
+    background: #EE2D7A;
+    color: #fff;
     margin-bottom: 20px;
 }
 .cabinet_data_bottom {
@@ -4749,8 +4752,8 @@ position: relative;
     color: #fff;
     border: none;
 
-    background: #FCDB38;
-    color: #52595F;
+    background: #EE2D7A;
+    color: #fff;
     padding: 10px 10px;
     text-transform: uppercase;
     border-radius: 8px;
@@ -4817,10 +4820,10 @@ position: relative;
     margin-top: 20px;
 }
 #auth_modal .new_user_register, #wish_auth_modal .new_user_register{
-    background: #FCDB38;
+    background: #EE2D7A;
     flex-basis: 60%;
     text-align: center;
-    color: #000;
+    color: #fff;
     padding: 8px;
 }
 #auth_modal .login_submit, #wish_auth_modal .login_submit {

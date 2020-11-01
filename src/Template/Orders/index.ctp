@@ -1220,10 +1220,13 @@ $(".coupon__section__apply").click(function() {
         type: 'POST',
         data: {data: data},
         success: function(data){ 
+          console.log('result'+data.products);
           if (data.status == false) {
             $('.invalid__coupons').html("Не правильний код купона");
           }  else {
             $(".total_of_bascket_submit").html(data.total);
+            let template = getTemplateProducts(data.products);
+            $('.orders_bascket_container').html(template);
             $('.invalid__coupons').html('');
             $(".coupon__section__container").html(`
                 <div class="coupon__section___done">
@@ -1256,6 +1259,52 @@ $(".unset__coupon").click(function() {
           }
   });
 });
+
+
+function getTemplateProducts(data) {
+  
+let template = "";
+  for (var i = 0; i <data.length; i++) {
+    alert(i);
+    console.log(data[i]);
+    let arrtibutes = '';
+for (const [key, value] of Object.entries(data[i].array_options_name)) {
+     arrtibutes += value+" ";
+     console.log(key+" "+value);
+    
+}
+for (const [key, value] of Object.entries(data[i].array_option_item)) {
+     arrtibutes += value+" ";
+     console.log(key+" "+value);
+}
+
+
+
+price = Math.floor(data[i]['count'] * data[i]['one_price']);
+
+   template += '<div class="orders_bascket_item">'+
+            '<div class="orders_bascket_item_left">'+
+              '<img src="'+data[i]['product']['image']+'" alt="">'+
+            '</div>'+
+            '<div class="orders_bascket_item_right">'+
+              '<p class="orders_bascket_item_title">'+data[i]['product']['title']+'</p>'+
+              arrtibutes+
+              '<div class="orders_bascket_item_right_bottom">'+
+                '<div class="orders_bascket_item_right_count">'+
+                  '<p>'+ data[i]['count'] + ' шт</p>'+
+                '</div>'+
+                '<div class="orders_bascket_item_right_count_price">'+
+                  '<p><span class="" data-currency="'+data[i]['product']['currency_id'] +'" >'+price+'</span> грн</p>'+
+                '</div>'+
+              '</div>'+
+            '</div>'+
+          '</div>';
+  }
+  console.log(template);
+    return template;
+}
+
 	<?php echo $this->Html->scriptEnd(); ?>
+
 
 </script>

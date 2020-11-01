@@ -103,8 +103,9 @@ class CouponsController   extends AppController
                     }
               $total = $total + $price;
             }
+            $data = array_values($_SESSION['cart']);
             
-            $this->response->body(json_encode(array('status'=>true, 'message' => $result->name, 'coupon'=>$result->discount, 'total' => $total,'products' => $_SESSION['cart'])));
+            $this->response->body(json_encode(array('status'=>true, 'message' => $result->name, 'coupon'=>$result->discount, 'total' => $total,'products' => $data)));
        } else {
             $this->response->body(json_encode(array('status'=>false, 'message' => 'False')));
        }
