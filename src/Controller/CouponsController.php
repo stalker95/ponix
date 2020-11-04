@@ -73,6 +73,10 @@ class CouponsController   extends AppController
             $discount = $result->discount;
 
             foreach ($_SESSION['cart'] as $key => $value) {
+              if (!isset($_SESSION['coupons'][$value['product']->id])) {
+                $_SESSION['coupons'][$value['product']->id] = [];
+                $_SESSION['coupons'][$value['product']->id][]= $result->id;
+
                 $product_coupons = $this->CouponsProducts->find()->where(['product_id' => $value['product']->id])->first();
 
                  $price = $_SESSION['cart'][$key]['one_price'];
@@ -91,9 +95,11 @@ class CouponsController   extends AppController
                   $_SESSION['cart'][$key]['one_price'] = $_SESSION['cart'][$key]['one_price'] - ($one_persent * $discount);
 
                 }
+              }
             }
-            foreach ($_SESSION['cart'] as $key => $value) {
-              $price = $_SESSION['cart'][$key]['one_price'];
+            $arrays = $_SESSION['cart'];
+            foreach ($arrays as $key => $value) {
+              $price = $arrays[$key]['one_price'];
                     if ($value['product']['currency_id'] == 2) {
                        $price = ($value['count'] * $value['one_price']) * $kusr_euro;
                     } if  ($value['product']['currency_id'] == 3) {
@@ -101,11 +107,13 @@ class CouponsController   extends AppController
                      } if  ($value['product']['currency_id'] == 1) {
                         $price = ($value['count'] * $value['one_price']);
                     }
+                    $arrays[$key]['one_price'] = $price;
               $total = $total + $price;
             }
-            $data = array_values($_SESSION['cart']);
+            $data = array_values($arrays);
+           // debug($data);
             
-            $this->response->body(json_encode(array('status'=>true, 'message' => $result->name, 'coupon'=>$result->discount, 'total' => $total,'products' => $data)));
+            $this->response->body(json_encode(array('status'=>true, 'message' => $result->name, 'coupon'=>$result->discount, 'total' => $total,'products' => $data, 'coupons' =>  $_SESSION['coupons'])));
        } else {
             $this->response->body(json_encode(array('status'=>false, 'message' => 'False')));
        }

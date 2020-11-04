@@ -1224,7 +1224,7 @@ $(".coupon__section__apply").click(function() {
           if (data.status == false) {
             $('.invalid__coupons').html("Не правильний код купона");
           }  else {
-            $(".total_of_bascket_submit").html(data.total);
+            $(".total_of_bascket_submit").html(Math.floor(data.total));
             let template = getTemplateProducts(data.products);
             $('.orders_bascket_container').html(template);
             $('.invalid__coupons').html('');
@@ -1265,7 +1265,6 @@ function getTemplateProducts(data) {
   
 let template = "";
   for (var i = 0; i <data.length; i++) {
-    alert(i);
     console.log(data[i]);
     let arrtibutes = '';
 for (const [key, value] of Object.entries(data[i].array_options_name)) {
